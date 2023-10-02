@@ -1,0 +1,68 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.section-1{
+    position: relative;
+    display:  inline-block;
+    height: 100vh;
+    width: 100%;
+}
+.section-1::after{
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 100%;
+   background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 22%, #3B8EA5 100%);
+}
+.hero-image{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 80%;
+    /* bottom: 10rem; */
+}
+.scroll-circle{
+    position: relative;
+    float: right;
+    bottom: 25rem;
+    right: 15rem;
+    z-index: 1;
+    /* top: 500px; */
+}
+#logo-rect{
+    position: relative;
+    float: left;
+    z-index: 2;
+    border-radius: 25px;
+    bottom: 40rem;
+    right: 2rem;
+    width: 60%;
+    height: 40%;
+    background-color: rgba(253,252,253,0.65);
+}
+#main-logo-img{
+    height: 80%;
+    width: auto;
+    margin: 2.3rem 6rem;
+    float: right;
+}
+
+.section-2{
+    height: 1080px;
+    width: auto;
+    border: 2px black solid;
+}
+.section-3{
+    height: 1080px;
+    width: auto;
+    border: 2px black solid;
+}
+.section-4{
+    height: 1080px;
+    width: auto;
+    border: 2px black solid;
+}
