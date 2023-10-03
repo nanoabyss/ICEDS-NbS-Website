@@ -13,7 +13,7 @@ body{
 .section-1{
     position: relative;
     display:  inline-block;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 8.34%;
     width: 100%;
     padding: 0;
@@ -56,7 +56,8 @@ body{
 }
 #main-logo-img{
     height: 80%;
-    width: auto;
+    width: auto; 
+    /* Change the width to % not auto due to screensizing */
     margin: 2.3rem 6rem;
     float: right;
 }
