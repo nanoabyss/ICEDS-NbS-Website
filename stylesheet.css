@@ -13,6 +13,7 @@ body{
 .section-1{
     position: relative;
     display:  inline-block;
+    overflow: hidden;
     height: 8.34%;
     width: 100%;
     padding: 0;
@@ -146,7 +147,36 @@ body{
 
 
 .section-4{
-    height: 1080px;
-    width: auto;
-    border: 2px black solid;
+    height: 8.34%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* display: inline-block; */
+    /* border: 2px black solid; */
+}
+.backdrop-image{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+#communities-text{
+    position: relative;
+    z-index: 2;
+    float: right;
+    background: rgba(59,142,165,0.77);
+    width: 60%;
+    height: 20%;
+    bottom: 40rem;
+    left: 10rem;
+    border-radius: 100px;
+    padding: 2em 10rem 2em 2em;
+}
+#communities-text p{
+    margin: auto;
+    color: #EEF8F9;
+    font-size: 58px;
+    text-align: center;
+    padding: 0 2rem 0 2rem;
 }
