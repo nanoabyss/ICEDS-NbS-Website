@@ -1,13 +1,22 @@
 body{
     padding: 0;
     margin: 0;
+    /* background-color: red; */
 }
-
+.overall-container{
+    height: 12960px;
+    padding: 0;
+    margin: 0;
+    /* background-color: aqua; */
+}
+/* Section 1 CSS */
 .section-1{
     position: relative;
     display:  inline-block;
-    height: 100vh;
+    height: 8.34%;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 .section-1::after{
    content: '';
@@ -19,7 +28,7 @@ body{
    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 22%, #3B8EA5 100%);
 }
 .hero-image{
-    height: 100vh;
+    height: 99%;
     width: 100%;
     object-fit: cover;
     object-position: 50% 80%;
@@ -50,17 +59,92 @@ body{
     margin: 2.3rem 6rem;
     float: right;
 }
-
+/* Section 2 CSS */
 .section-2{
-    height: 1080px;
+    height: 8.34%;
     width: auto;
-    border: 2px black solid;
+    /* border: 2px black solid; */
+    background: #3B8DA5;
 }
+#cirlce-group{
+    position: relative;
+    z-index: 1;
+    float: right;
+    margin: 0 6rem 0 0;
+    bottom: 30rem;
+}
+#text-group{
+    position: relative;
+    z-index: 3;
+    margin: 0 0 0 10rem;
+    padding: 8rem 0 0 0;
+    width: 58%;
+}
+#text-group h1{
+    position: relative;
+    z-index: 3;
+    color: #EEF8F9;
+    font-size: 66px;
+    width: 100%;
+    margin: 0;
+    text-decoration: none;
+    font-weight: normal;
+}
+#text-group h2{
+    color: #EEF8F9;
+    font-size: 40px;
+    padding-top: 2rem;
+}
+
+/* Section 3 CSS */
 .section-3{
-    height: 1080px;
-    width: auto;
-    border: 2px black solid;
+    height: 8.34%;
+    width: 100%;
+    /* border: 2px orange solid; */
 }
+#flex-container{
+    position: relative;
+    bottom: 15.6rem ;
+    gap: 0px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 2px green solid;
+    /* flex-wrap: wrap; */
+}
+.main-text-box{
+    width: 60%;
+    /* height: 100%; */
+    /* border: 2px black solid; */
+    display: flex;
+    justify-content: center;
+}
+#text-container1{
+    margin: auto;
+    width: 55%;
+}
+#text-container1 h1{
+    text-align: center;
+    font-size: 50px;
+}
+#text-container1 p{
+    font-size: 25px;
+    background: #3B8EA5;
+    border-radius: 100px;
+    padding: 2em 2.5em;
+    color: #EEF8F9;
+}
+
+#animation1{
+    width: 40%;
+    /* height: 100%; */
+    /* border: 2px red solid; */
+}
+
+
 .section-4{
     height: 1080px;
     width: auto;
