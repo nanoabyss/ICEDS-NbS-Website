@@ -7,6 +7,7 @@ body{
     height: 12960px;
     padding: 0;
     margin: 0;
+    overflow: hidden;
     /* background-color: aqua; */
 }
 /* Section 1 CSS */
@@ -47,7 +48,7 @@ body{
     position: relative;
     float: left;
     z-index: 2;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     bottom: 40rem;
     right: 2rem;
     width: 60%;
@@ -56,7 +57,7 @@ body{
 }
 #main-logo-img{
     height: 80%;
-    width: auto; 
+    width: 80%; 
     /* Change the width to % not auto due to screensizing */
     margin: 2.3rem 6rem;
     float: right;
@@ -131,11 +132,12 @@ body{
 #text-container1 h1{
     text-align: center;
     font-size: 50px;
+    text-decoration: underline;
 }
 #text-container1 p{
     font-size: 25px;
     background: #3B8EA5;
-    border-radius: 100px;
+    /* border-radius: 100px; */
     padding: 2em 2.5em;
     color: #EEF8F9;
 }
@@ -145,16 +147,36 @@ body{
     /* height: 100%; */
     /* border: 2px red solid; */
 }
+/* TODO: 
+    Add more useful code comments*/
+#dashed-circle{
+    position: relative;
+    z-index: 3;
+    float: right;
+    overflow: hidden;
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+    bottom: 250px;
+    left: 200px;
+}
 
-
+/* Section 4 CSS */
 .section-4{
     height: 8.34%;
     width: 100%;
     position: relative;
     overflow: hidden;
+    border: 1px black solid;   
+    bottom: 505px; 
     /* display: inline-block; */
     /* border: 2px black solid; */
 }
+/* #section-4-container{
+    position: relative;
+    bottom: 505px;
+} */
+
 .backdrop-image{
     object-fit: cover;
     width: 100%;
@@ -180,4 +202,139 @@ body{
     font-size: 58px;
     text-align: center;
     padding: 0 2rem 0 2rem;
+}
+
+/* TODO: */
+#light-green-circle{
+    position: relative;
+    z-index: 2;
+    width: auto;
+    right: 400px;
+}
+
+
+/* Section 5 CSS */
+.section-5{
+    height: 8.34%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    bottom: 31.56rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: -5rem;
+    /* padding-top: 5rem; */
+    /* border: 1px red solid; */
+}
+#section-5-circle{
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: #3B8EA5;
+    aspect-ratio: 1/1;
+    height: 80%;
+    margin: auto 0;
+    right: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section-5-circle p{
+    width: 60%;
+    text-align: center;
+    font-size: 20px;
+
+}
+#graphic-section1{
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+    width: 30%;
+    height: 65%;
+    background: #9CD9EB;
+    left: 4rem;
+}
+
+/* Section-6 CSS */
+.sections-example{
+    height: 8.34%;
+    width: 100%;
+    position: relative;
+    bottom: 31.56rem;
+    /* border: 1px black solid; */
+}
+.examples-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    height: calc(100% - 2rem);
+    /* margin: 2rem 2rem 0 2rem; */
+    padding: 2rem 0 0 0;
+}
+.example-text-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    margin: auto 0;
+    padding-left: 6rem;
+}
+.title-container h1{
+    background: #3B8EA5;
+    text-align: center;
+    width: 70%;
+    margin: 2rem 0;
+    padding: 2rem;
+    font-size: 60px;
+    border-radius: 25px;
+}
+.desc-container p{
+    background: #3B8EA5;
+    font-size: 23px;
+    padding: 1.5rem;
+    margin: 0;
+    border-radius: 25px;
+}
+
+.example-text-container-alt{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    margin: auto 0;
+    padding-right: 6rem;
+}
+.title-container-alt h1{
+    position: relative;
+    float: right;
+    background: #3B8EA5;
+    text-align: center;
+    width: 70%;
+    margin: 2rem 0 ;
+    padding: 2rem;
+    font-size: 60px;
+    border-radius: 25px;
+}
+.desc-container-alt p{
+    background: #3B8EA5;
+    font-size: 23px;
+    padding: 1.5rem;
+    margin: 0;
+    border-radius: 25px;
+}
+.example-img-container{
+    width: 50%;
+    height: 90%;
+    position: relative;
+    top: 10%;
+    border-radius: 25px;
+    /* object-fit: cover; */
+}
+.example-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
 }
