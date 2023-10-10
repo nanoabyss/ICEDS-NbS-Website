@@ -8,8 +8,40 @@ body{
     padding: 0;
     margin: 0;
     overflow: hidden;
+    z-index: -1;
     /* background-color: aqua; */
 }
+#menu{
+    position: fixed;
+    top: 5%;
+    left: 3%;
+    z-index: 10;
+}
+.nav-bar{
+    overflow: hidden;
+    background: #EDF7F8;
+    position: relative;
+    left: 80px;
+    bottom: 38px;
+}
+.nav-bar a{
+    float: right;
+    color: black;
+    background-color: #EDF7F8;
+    /* border-radius: 50%;
+    width: 75px;
+    height: 75px; */
+    padding: 17px 25px;
+    margin: 0 5px;
+    text-decoration: none;
+    font-size: 17px;
+}
+#mylinks{
+    display: none;
+}
+
+
+
 /* Section 1 CSS */
 .section-1{
     position: relative;
@@ -206,10 +238,11 @@ body{
 
 /* TODO: */
 #light-green-circle{
-    position: relative;
-    z-index: 2;
-    width: auto;
-    right: 400px;
+    position: absolute;
+    z-index: 1;
+    width: 900px;
+    bottom: 45rem;
+    right: 75%;
 }
 
 
@@ -218,14 +251,23 @@ body{
     height: 9.091%;
     width: 100%;
     position: relative;
-    z-index: -1;
+    z-index: 1 ;
     bottom: 31.56rem;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     background: #EDF7F8;
     /* padding-top: 5rem; */
     /* border: 1px red solid; */
+}
+#section-5-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%; 
+    position: relative;
+    z-index: 1;
+    /* right: 30rem; */
 }
 #section-5-circle{
     position: relative;
@@ -248,7 +290,7 @@ body{
 }
 #graphic-section1{
     position: relative;
-    z-index: 2;
+    z-index: 100;
     margin: auto 0;
     width: 30%;
     height: 65%;
@@ -265,6 +307,30 @@ body{
     background: #EDF7F8;
     /* border: 1px black solid; */
 }
+#example-green-circle{
+    position: absolute;
+    z-index: 1;
+    width: 900px;
+    left: 80%;
+    bottom: -40%;
+}
+#example-brown-circle{
+    position: absolute;
+    z-index: 1;
+    width: 900px;
+    left: -20%;
+    top: 55%;
+}
+#green-dashed-circle{
+    position: absolute;
+    z-index: 1;
+    width: 500px;
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+    left: 85%;
+    bottom: -25%;
+}
 .examples-container{
     display: flex;
     flex-direction: row;
@@ -277,6 +343,8 @@ body{
 .example-text-container{
     display: flex;
     flex-direction: column;
+    /* position: relative; */
+    z-index: 4;
     width: 50%;
     height: 80%;
     margin: auto 0;
@@ -290,6 +358,7 @@ body{
     padding: 2rem;
     font-size: 60px;
     border-radius: 25px;
+    z-index: 4;
 }
 .desc-container p{
     /* background: #3B8EA5; */
@@ -302,6 +371,7 @@ body{
 .example-text-container-alt{
     display: flex;
     flex-direction: column;
+    z-index: 3;
     width: 50%;
     height: 80%;
     margin: auto 0;
@@ -356,6 +426,7 @@ body{
     height: 80%;
     background: #EDF7F8;
     text-align: center;
+    z-index: 3;
 }
 .section-10{
     height: 9.091%;
@@ -433,4 +504,121 @@ body{
     padding: 0;
     font-size: 25px;
     width: 50%;
+}
+
+/* Section 11 CSS */
+.section-11{
+    height: 9.091%;
+    width: 100%;
+    position: relative;
+    background: rgba(0,0,0,0);
+    bottom: 31.56rem;
+}
+.img-container{
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+}
+#back-drop-img{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+#contact-container{
+    background: rgba(0,0,0,0);
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+#backdrop-svg {
+    position: absolute;
+    bottom: 0;
+    width: 105%;
+    height: auto;
+}
+#info-container{
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    height: 50%;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    /* background: rebeccapurple; */
+}
+#column-1{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5rem 0 0 5rem;
+    color: #EDF7F8;
+}
+#column-2{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5rem 0 0 5rem;
+    color: #EDF7F8;
+}
+.contact-columns h2{
+    font-size: 40px;
+    margin: 1rem 0;
+}
+.contact-columns p{
+    font-size: 30px;
+    margin: 1rem;
+}
+#column-3{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5rem 0 0 5rem;
+    color: #EDF7F8; 
+}
+#column-3 form{
+    margin-left: 1rem;
+    border-bottom: 2px solid #EDF7F8;
+    width: 70%;
+}
+#column-3 input[type=text]{
+    width: 80%;
+    background: rgba(0,0,0,0);
+    border: none;
+    color: #A5D6B1;
+    font-size: 30px;
+}
+#column-3 input[type=submit]{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: #EDF7F8;
+    font-size: 30px;
+    position: relative;
+    float: right;
+}
+#socials{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    height: 10%;
+    margin-left: 1rem;
+}
+#socials img{
+    width: 10%;
+}
+#nbs-tag{
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+    height: 10%;
+    width: 100%;
+}
+#nbs-tag p{
+    font-size: 25px;
+    color: #EDF7F8;
+    margin: 2rem 4rem;
 }

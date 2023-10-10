@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="18" viewBox="0 0 70 18">
+  <g id="Menu_1" data-name="Menu 1" transform="translate(-25 -25.215)">
+    <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(25 25.215)" fill="#2c6b7c" stroke="#2c6b7c" stroke-width="1">
+      <circle cx="9" cy="9" r="9" stroke="none"/>
+      <circle cx="9" cy="9" r="8.5" fill="none"/>
+    </g>
+    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(51 25.215)" fill="#2c6b7c" stroke="#2c6b7c" stroke-width="1">
+      <circle cx="9" cy="9" r="9" stroke="none"/>
+      <circle cx="9" cy="9" r="8.5" fill="none"/>
+    </g>
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(77 25.215)" fill="#2c6b7c" stroke="#2c6b7c" stroke-width="1">
+      <circle cx="9" cy="9" r="9" stroke="none"/>
+      <circle cx="9" cy="9" r="8.5" fill="none"/>
+    </g>
+  </g>
+</svg>
