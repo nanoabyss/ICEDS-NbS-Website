@@ -39,6 +39,39 @@ body{
 #mylinks{
     display: none;
 }
+/* Sticky Nav Bar */
+#sticky-menu{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+.sticky-nav-bar{
+    overflow: hidden;
+    background: rgba(237, 247, 248, 0.9);
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#sticky-mylinks{
+    margin: 0 0 0 30px;
+}
+#sticky-mylinks a{
+    font-size: 20px;
+    text-decoration: underline;
+    color: black;
+    padding: 0px 20px;
+}
+#logo-alone{
+    width: 60px;
+    aspect-ratio: 1/1;
+    margin-left: 30px;
+}
+
+
+
 
 
 
@@ -199,15 +232,11 @@ body{
     width: 100%;
     position: relative;
     overflow: hidden;
-    border: 1px black solid;   
+    /* border: 1px black solid;    */
     bottom: 505px; 
     /* display: inline-block; */
     /* border: 2px black solid; */
 }
-/* #section-4-container{
-    position: relative;
-    bottom: 505px;
-} */
 
 .backdrop-image{
     object-fit: cover;
