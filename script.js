@@ -54,37 +54,37 @@ function clickFunction(i){
     console.log("Wow World");
     switch (i){
         case "landuse":
-            document.getElementById("focal-image").src = "Assests/Icons/landuse.svg";
+            document.getElementById("focal-image").src = "Assests/Icons/2x/landuse.png";
             document.getElementById("focal-heading").innerHTML = "Strategic Land Use";
             console.log("landuse");
             break;
         case "urban":
-            document.getElementById("focal-image").src = "Assests/Icons/urban.svg";
+            document.getElementById("focal-image").src = "Assests/Icons/2x/urban.png";
             document.getElementById("focal-heading").innerHTML = "Urban Blue-Green Infrastructure";
             console.log("urban");
             break;
         case  "agricultural":
-            document.getElementById("focal-image").src = "Assests/Icons/agricultural.svg";
+            document.getElementById("focal-image").src = "Assests/Icons/2x/agricultural.png";
             document.getElementById("focal-heading").innerHTML = "Agricultrual Practice Change";
             break;
         case "stream":
-          document.getElementById("focal-image").src = "Assests/Icons/stream.svg";
+          document.getElementById("focal-image").src = "Assests/Icons/2x/stream.png";
           document.getElementById("focal-heading").innerHTML = "Stream Restoration";
           break;
         case "ecosystem":
-          document.getElementById("focal-image").src = "Assests/Icons/ecosystem.svg";
+          document.getElementById("focal-image").src = "Assests/Icons/2x/ecosystem.png";
           document.getElementById("focal-heading").innerHTML = "Ecosystem / Watershed Restoration";
           break;
         case "wetlands":
-          document.getElementById("focal-image").src = "Assests/Icons/wetlands.svg";
+          document.getElementById("focal-image").src = "Assests/Icons/2x/wetlands.png";
           document.getElementById("focal-heading").innerHTML = "Wetlands";
           break;
         case "reforestation":
-          document.getElementById("focal-image").src = "Assests/Icons/reforestation.svg";
+          document.getElementById("focal-image").src = "Assests/Icons/2x/reforestation.png";
           document.getElementById("focal-heading").innerHTML = "Reforestation";
           break;
         case "paleochannel":
-          document.getElementById("focal-image").src = "Assests/Icons/paleochannel.svg";
+          document.getElementById("focal-image").src = "Assests/Icons/2x/paleochannel.png";
           document.getElementById("focal-heading").innerHTML = "Paleochannel";
           break;
     }
@@ -102,4 +102,22 @@ function myFunction(){
   }
 }
 
+let mybutton = document.getElementById("return-top-button");
+
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
