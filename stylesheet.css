@@ -1,6 +1,7 @@
 body{
     padding: 0;
     margin: 0;
+    z-index: -1;
     /* overflow: hidden; */
     /* background-color: red; */
 }
@@ -11,7 +12,8 @@ body{
     padding: 0;
     margin: 0;
     overflow: hidden;
-    z-index: -1;
+    position: relative;
+    /* z-index: -1; */
     /* background-color: aqua; */
 }
 /* Font Section */
@@ -24,6 +26,7 @@ font-style: normal;
     font-family: GeosansLight;
     src: url(Assests/fonts/GeosansLight.ttf);
 }
+
 
 
 h1{
@@ -299,11 +302,8 @@ canvas {
     z-index: 5;
     bottom: -30vh;
     left: 84vw;
-    -webkit-transform: rotate(135deg);
-    -ms-transform: rotate(135deg);
-    transform: rotate(135deg);
+    /* border: 1px black solid; */
 }
-
 /* Section 4 CSS */
 .section-4{
     height: 9.091%;
@@ -500,7 +500,7 @@ canvas {
     position: absolute;
     z-index: 1;
     width: 46vw;
-    left: 80%;
+    left: 75%;
     bottom: -40vh;
 }
 #example-brown-circle{
@@ -515,9 +515,6 @@ canvas {
     position: absolute;
     z-index: 1;
     width: 26vw;
-    -webkit-transform: rotate(135deg);
-    -ms-transform: rotate(135deg);
-    transform: rotate(135deg);
     left: 85%;
     bottom: -25%;
 }
@@ -768,4 +765,59 @@ label{
 #form-svg{
     position: absolute;
     bottom: 0;
+}
+
+/* Scrollama CSS */
+.red{
+    background: red;
+}
+
+.will-animate{
+    visibility: hidden;
+}
+
+
+.enter-left{
+    visibility: visible;
+    animation: left 2s 1;  
+}
+
+.enter-right{
+    visibility: visible;
+    animation: right 2s 1; 
+}
+.enter-main{
+    visibility: visible;
+    animation: report 3s 1;
+}
+
+
+
+/* Animation */
+@keyframes left {
+    from{
+        transform: translateX(-40%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes right {
+    from{
+        /* opacity: 0; */
+        transform: translateX(50%);
+    }
+    to{
+        /* opacity: 1; */
+        transform: translateX(0);
+    }
+}
+@keyframes report {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

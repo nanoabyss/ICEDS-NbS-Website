@@ -121,3 +121,49 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+
+
+
+// Scrollama
+
+
+var scrolly = document.querySelector(".overall-container");
+var div = document.querySelector(".animation-div")
+var step = div.querySelector(".step");
+
+var scroller = scrollama();
+
+function handleStepEnter(response){
+  console.log(response.element);
+  if(response.element.classList.contains("left")){
+    response.element.classList.add("enter-left");
+
+  } else if (response.element.classList.contains("right")) {
+    response.element.classList.add("enter-right");
+
+  }
+  if(response.element.classList.contains("report")){
+    response.element.classList.add("enter-main");
+  }
+  response.element.classList.remove("will-animate");
+  // response.element.classList.add("red");
+}
+
+function handleStepExit(response){
+  console.log ("Leaving " + response.element);
+  // response.element.classList.remove("red");
+}
+
+
+function init(){
+  scroller
+      .setup({
+        step: ".step",
+        offset: 1
+        
+      })
+      .onStepEnter(handleStepEnter)
+      .onStepExit(handleStepExit);
+}
+
+init();
