@@ -6,7 +6,8 @@ body{
 }
 .overall-container{
     /* 11880px */
-    height: 1283vh;
+    height: 11880px;
+    /* height: 1283vh; */
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -241,12 +242,13 @@ canvas {
 .section-3{
     height: 9.091%;
     width: 100%;
+    position: relative;
     /* border: 2px orange solid; */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 #flex-container{
-    /* position: relative; */
-    bottom: 15.6rem ;
+    /* position: relative;
+    bottom: 15.6rem ; */
     gap: 0px;
     margin: 0;
     padding: 0;
@@ -294,17 +296,12 @@ canvas {
     Add more useful code comments*/
 #dashed-circle{
     position: absolute;
-    z-index: 1;
-    float: right;
-    overflow: hidden;
+    z-index: 5;
+    bottom: -30vh;
+    left: 84vw;
     -webkit-transform: rotate(135deg);
     -ms-transform: rotate(135deg);
     transform: rotate(135deg);
-    /* bottom: 4%;
-    left: 12vw; */
-    left: 85vw;
-    /* bottom: 1000px; */
-    /* top: 0; */
 }
 
 /* Section 4 CSS */
@@ -313,6 +310,7 @@ canvas {
     width: 100%;
     position: relative;
     overflow: hidden;
+    /* overflow-y:visible; */
 }
 
 .backdrop-image{
@@ -343,8 +341,8 @@ canvas {
 #light-green-circle{
     position: absolute;
     z-index: 1;
-    width: 900px;
-    bottom: 45rem;
+    width: 46vw;
+    bottom: 70vh;
     right: 75%;
 }
 
@@ -355,7 +353,7 @@ canvas {
     width: 100%;
     position: relative;
     z-index: 1 ;
-    /* bottom: 31.56rem; */
+    /* bottom: 300px; */
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -406,7 +404,7 @@ canvas {
     height: 9.091%;
     width: 100%;
     position: relative;
-    /* bottom: 31.56rem; */
+    /* bottom: 300px; */
     background: #EDF7F8;
 }
 
@@ -501,21 +499,22 @@ canvas {
 #example-green-circle{
     position: absolute;
     z-index: 1;
-    width: 900px;
+    width: 46vw;
     left: 80%;
-    bottom: -40%;
+    bottom: -40vh;
 }
 #example-brown-circle{
     position: absolute;
     z-index: 1;
-    width: 900px;
+    width: 46vw;
     left: -20%;
-    top: 55%;
+    /* top: 55vh; */
+    bottom: -55vh;
 }
 #green-dashed-circle{
     position: absolute;
     z-index: 1;
-    width: 500px;
+    width: 26vw;
     -webkit-transform: rotate(135deg);
     -ms-transform: rotate(135deg);
     transform: rotate(135deg);
@@ -534,7 +533,7 @@ canvas {
     width: 100%;
     position: relative;
     background: #3B8EA5;
-    /* bottom: 31.56rem; */
+    /* bottom: 300px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -554,7 +553,7 @@ canvas {
     width: 100%;
     position: relative;
     background: #EDF7F8;
-    /* bottom: 31.56rem; */
+    /* bottom: 300px; */
 }
 .section-10 h1{
     margin: 0;
@@ -637,7 +636,7 @@ canvas {
     width: 100%;
     position: relative;
     background: rgba(0,0,0,0);
-    /* bottom: 31.56rem; */
+    /* bottom: 300px; */
 }
 .img-container{
     position: absolute;
