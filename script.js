@@ -50,8 +50,9 @@ document.querySelector('#urban').addEventListener('click', function() {
   });
 
 // TODO: Add a file that has all the descriptions for each of the types.
+let p5Anim;
+
 function clickFunction(i){
-    console.log("Wow World");
     switch (i){
         case "landuse":
             document.getElementById("focal-image").src = "Assests/Icons/2x/landuse.png";
@@ -72,20 +73,24 @@ function clickFunction(i){
           document.getElementById("focal-heading").innerHTML = "Stream Restoration";
           break;
         case "ecosystem":
-          document.getElementById("focal-image").src = "Assests/Icons/2x/ecosystem.png";
-          document.getElementById("focal-heading").innerHTML = "Ecosystem / Watershed Restoration";
+          console.log("Poggers")
+          p5Anim.remove();
+            p5Anim = new p5(ecoAnim, 'nbs-animation');
           break;
         case "wetlands":
           document.getElementById("focal-image").src = "Assests/Icons/2x/wetlands.png";
           document.getElementById("focal-heading").innerHTML = "Wetlands";
           break;
         case "reforestation":
-          document.getElementById("focal-image").src = "Assests/Icons/2x/reforestation.png";
-          document.getElementById("focal-heading").innerHTML = "Reforestation";
+            p5Anim.remove();
+            p5Anim = new p5(logoAnim, 'nbs-animation')
           break;
         case "paleochannel":
-          document.getElementById("focal-image").src = "Assests/Icons/2x/paleochannel.png";
-          document.getElementById("focal-heading").innerHTML = "Paleochannel";
+          // document.getElementById("focal-image").src = "Assests/Icons/2x/paleochannel.png";
+          // document.getElementById("focal-heading").innerHTML = "Paleochannel";
+          p5Anim.remove();
+          p5Anim = new p5(paleo, 'nbs-animation')
+          
           break;
     }
 };
@@ -143,7 +148,13 @@ function handleStepEnter(response){
 
   }
   if(response.element.classList.contains("report")){
-    response.element.classList.add("enter-main");
+    // response.element.classList.add("enter-main");
+    console.log(response.element.children[1].children);
+    response.element.children[1].children[0].classList.add("big-circle");
+    response.element.children[1].children[1].classList.add("dark-green");
+    response.element.children[1].children[2].classList.add("light-green");
+
+    document.querySelector("#report-img-link").classList.add("enter-main")
   }
   response.element.classList.remove("will-animate");
   // response.element.classList.add("red");
@@ -159,11 +170,198 @@ function init(){
   scroller
       .setup({
         step: ".step",
-        offset: 1
-        
+        offset: 0.9
       })
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit);
 }
 
 init();
+
+// ----------------------------------------------------------------------------------------------------------------------
+// P5.js Section
+// ----------------------------------------------------------------------------------------------------------------------
+
+// Logo Animation
+var logoAnim = function(p){
+  let spritesheet; //image variable
+let spritedata; //data variable
+
+let animation = []; //array for each frame
+
+let logo = [];
+
+p.preload = function() {
+  spritedata = p.loadJSON("Assests/Animation-assets/logo.json");
+  spritesheet = p.loadImage("Assests/Animation-assets/logo stills 2.png");
+  //logo = loadImage("Final logo still.png");
+}
+
+p.setup = function() {
+  p.createCanvas(400, 400);
+  let frames = spritedata.frames;
+  for (let i = 0; i < frames.length; i++){
+    let pos = frames[i].position;
+    let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+    animation.push(img);
+  }
+  
+  logo = new Sprite(animation, 0, 0, 0.08);
+  
+}
+ 
+  
+    class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+      
+    }
+    animate() {
+      this.index += this.speed;
+  
+    }
+  }
+p.draw = function() {
+  //background(237,247,248);
+  
+  logo.show();
+  logo.animate();
+  //image(animation[21], 0, 0, 400, 400);
+  
+  
+}
+}
+var myp5 = new p5(logoAnim, 'logo-animation');
+
+// Paleochannel Animation
+var paleo = function (p){
+  
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let Paleochannel = [];
+  
+  p.preload = function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/Paleochannel.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/paleochannel sprite sheet.png");
+  }
+  
+  p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    Paleochannel = new Sprite(animation, 0, 0, 0.03);
+  }
+    
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+      
+    }
+    animate() {
+      this.index += this.speed;
+  
+    }
+  }
+    
+  p.draw = function() {   
+    Paleochannel.show();
+    Paleochannel.animate();
+    //image(animation[11], 0, 0, 400, 400); 
+  }
+  }
+  
+  // var myp5_1 = new p5(paleo);
+  p5Anim = new p5(paleo, 'nbs-animation');
+
+
+  // EcoSystem Animation
+
+  var ecoAnim = function(p){
+    let spritesheet; //image variable
+  let spritedata; //data variable
+  
+  let animation = []; //array for each frame
+  
+  let ER = [];
+  
+   p.preload = function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/ER.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/Ecosystem Restoration Sprite Sheet.png");
+  }
+  
+   p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    
+    ER = new Sprite(animation, 0, 0, 0.03);
+    
+  }
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+      
+    }
+  
+    animate() {
+      this.index += this.speed;
+  
+    }
+  }    
+   p.draw = function() {
+    
+    
+    ER.show();
+    ER.animate();
+    //image(animation[11], 0, 0, 400, 400);
+    
+    
+  }
+  }
+  
+  // var myp5_2 = new p5(ecoAnim);
+
+
+  

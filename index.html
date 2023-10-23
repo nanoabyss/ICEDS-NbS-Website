@@ -7,12 +7,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Home</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/scrollama"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>    
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="stylesheet" href="https://use.typekit.net/xwn1oli.css">
     </head>
@@ -21,13 +23,16 @@
 
             <div id = "sticky-menu">
                 <div class = "sticky-nav-bar">
+                    <a href="index.html" id = "logo-alone-link">
                     <img src="Assests/Logo-alone.svg" id = "logo-alone">
+                        </a>
+                
                     <div id="sticky-mylinks">
                        
-                        <a href="">Case Studies</a>
-                        <a href="">Nature-based solutions</a>
-                        <a href="">About Us</a>
-                        <a href="">Contact Us</a>
+                        <a href="caseStudies.html">Case Studies</a>
+                        <a href="nbs.html">Nature-based solutions</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="contactUs.html">Contact Us</a>
                     </div>
                     </div>
             </div>
@@ -59,8 +64,8 @@
                     <!-- <img src="Assests/Final Logo-07.svg" id = "main-logo-img"> -->
                     <!-- <iframe src="https://editor.p5js.org/johill/full/pQd9JNdpk"></iframe> -->
                     <main id = "logo-animation">
-                    <script src = "logo-sketch.js"></script>
-                    <script src= "logo-sprite.js"></script>
+                    <!-- <script src = "logo-sketch.js"></script>
+                    <script src= "logo-sprite.js"></script> -->
                 </main>
                     <div id="main-logo-text">
                         <h1>Nature-Based Flood Resilience</h1>
@@ -79,15 +84,15 @@
                 </div>
                 <!-- TODO: Address CSS Circle Issues - About relative SVG sizing -->
                 <div id = "circle-group" class="step report will-animate">
-                    <a href="Assests/report-placeholder.png" id = "report-img-link"><img src="Assests/report-placeholder.png" id = "report-placeholder">
+                    <a href="Assests/report-placeholder.png" id = "report-img-link" class=""><img src="Assests/report-placeholder.png" id = "report-placeholder">
                         Download Report
                     </a>
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 864.352 825">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 864.352 825" id = "circle-group-svg">
                         <g id="Ellipse_75" data-name="Ellipse 75" transform="translate(149.883 170)" fill="#9cd9eb" stroke="#9cd9eb" stroke-width="1" opacity="0.83">
                           <circle cx="327.5" cy="327.5" r="327.5" stroke="none"/>
                           <circle cx="327.5" cy="327.5" r="327" fill="none"/>
                         </g>
-                        <g id="Ellipse_76" data-name="Ellipse 76" transform="translate(0 532.541)" fill="#5ab87c" stroke="#5ab87c" stroke-width="1" opacity="0.74">
+                        <g id="Ellipse_76" data-name="Ellipse 76"  fill="#5ab87c" stroke="#5ab87c" stroke-width="1"  transform="translate(0 532.541)"  opacity="0.74">
                           <ellipse cx="127.5" cy="127.895" rx="127.5" ry="127.895" stroke="none"/>
                           <ellipse cx="127.5" cy="127.895" rx="127" ry="127.395" fill="none"/>
                         </g>
@@ -277,15 +282,18 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
             </div>
             <div class = "section-9">
                     <h1>Interactive Map</h1>
-                <div id = "interactive-map">
-                    <p>Interactive Map will live here - place holder atm</p>
+                <div id = "map">
+                    <script src="map.js"></script>
                 </div>
             </div>
             <div class = "section-10">
                 <h1> Nature-based solutions types </h1>
                 <div class = "type-container">
                     <div id = "img-desc-container">
-                        <img src="Assests/Icons/2x/landuse.png" id="focal-image">
+                        <div id ="nbs-animation">
+                            <script src="paleochannel-sketch.js"></script>
+
+                        </div>
                         <div id = "focal-container">
                             <h1 id ="focal-heading">Strategic Land Use</h1>
                             <p id = "focal-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut velit feugiat massa posuere dictum laoreet lobortis lectus. Nulla venenatis libero ac tellus ullamcorper placerat. Curabitur maximus non dui eu lobortis. Vivamus commodo imperdiet ultrices. Praesent mollis, arcu in pellentesque maximus, ante nisi pharetra erat, non pulvinar justo lorem at sem. Integer eu justo mi. Pellentesque eu aliquam neque. Nunc commodo eros quis nisi viverra maximus. Vestibulum maximus leo est, et dapibus dolor accumsan ac. Nullam massa arcu, tempus non mollis a, convallis non augue. Donec tincidunt ex et faucibus placerat. Proin eros dui, posuere quis commodo nec, consequat eu turpis. Vestibulum at justo quis metus pellentesque efficitur ut sit amet dolor. Aliquam elementum, dolor in pretium dictum, ligula nibh semper orci, eu pretium leo lorem sit amet ipsum. </p>
@@ -335,15 +343,15 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                     <div id="info-container">
                         <div id = "column-1" class = "contact-columns">
                             <h2>Resources</h2>
-                            <p>Download Report</p>
-                            <p>Nature-based Solutions</p>
-                            <p>Case Studies</p>
+                            <a href="Assests/report-placeholder.png">Download Report</a>
+                            <a href="nbs.html">Nature-based Solutions</a>
+                            <a href="caseStudies.html">Case Studies</a>
                         </div>
                         <div id = "column-2" class = "contact-columns">
                             <h2>About</h2>
-                            <p>About NbS</p>
-                            <p>Our Team</p>
-                            <p>Contact Us</p>
+                            <a href="aboutUs.html">About NbS</a>
+                            <a href="ourTeam.html">Our Team</a>
+                            <a href="contactUs.html">Contact Us</a>
                         </div>
                         
                         <!-- This Form for signing up for newsletter needs a third-party to act as a mailing service. -->
