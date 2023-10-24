@@ -667,7 +667,7 @@ var paleo = function (p){
     //image(animation[11], 0, 0, 400, 400); 
   }
   }
-  p5Anim = new p5(paleo, 'nbs-animation');
+  p5Anim = new p5(landuse, 'nbs-animation');
 
 
   
