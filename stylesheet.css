@@ -48,7 +48,10 @@ p,a{
 canvas {
     display: block;
   }
-
+.p5Canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
 
 
 
@@ -151,26 +154,24 @@ canvas {
     bottom: 40rem;
     right: 2rem;
     width: 60%;
-    height: 20vw;
+    height: 21vw;
     background-color: rgba(253,252,253,0.65);
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 1vw;
 }
-#defaultCanvas0{
-    /* background-color: red; */
-    /* border: 2px green solid; */
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 55%;
-}
+
 #logo-animation{
     /* margin: 0 auto; */
     /* vertical-align: center; */
-    width: 35%;
-    aspect-ratio: 1/1;
+    width: 20vw;
+    height: 20vw;
     /* border: 1px green solid; */
-    margin: 50px;
+   margin-left: 50px;
+}
+#main-logo-text {
+    width: 60%;
 }
 #main-logo-text h1{
     font-size: 4vw;
@@ -237,6 +238,7 @@ canvas {
     font-size: 4vw;
     width: 100%;
     margin: 0;
+    line-height: 100%;
 }
 #text-group h2{
     color: #EEF8F9;
@@ -264,11 +266,12 @@ canvas {
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     /* border: 2px green solid; */
     /* flex-wrap: wrap; */
 }
 .main-text-box{
-    width: 60%;
+    width: 45%;
     height: 100%;
     /* height: 100%; */
     /* border: 2px black solid; */
@@ -277,7 +280,7 @@ canvas {
 }
 #text-container1{
     margin: auto;
-    width: 55%;
+    width: 75%;
     /* height: 70%; */
 }
 #text-container1 h1{
@@ -296,15 +299,35 @@ canvas {
 }
 
 #animation1{
-    width: 40%;
-    /* height: 100%; */
+    width: 55%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 100px;
+    height: 40%;
     /* border: 2px red solid; */
 }
+#animation1-text{
+    margin-left: -15.5vw;
+    margin-top: 10.5vw;
+}
+#animation1-text h1{
+    font-size: 2.5vw;
+    color: #4e3f36;
+}
+#animation1-text h2{
+    font-size: 1.5vw;
+    color: #b09779;
+}
+
 /* TODO: 
     Add more useful code comments*/
-#dashed-circle{
+#small-light-brown-circle{
     position: absolute;
     z-index: 5;
+    width: 26vw;
+    aspect-ratio: 1/1;
     bottom: -30vh;
     left: 84vw;
     /* border: 1px black solid; */
@@ -340,6 +363,7 @@ canvas {
     font-size: 3vw;
     text-align: center;
     padding: 0 1em 0 0;
+    line-height: 100%;
 }
 
 /* TODO: */
@@ -373,37 +397,41 @@ canvas {
     width: 100%; 
     position: relative;
     z-index: 1;
+    height: 100%;
+    gap: 3vw;
     /* right: 30rem; */
-}
-#section-5-circle{
-    position: relative;
-    /* z-index: 1; */
-    border-radius: 50%;
-    background-color: #3B8EA5;
-    aspect-ratio: 1/1;
-    height: 80%;
-    margin: auto 0;
-    right: 4rem;
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
-#section-5-circle p{
-    width: 60%;
-    text-align: center;
+#section-5-text{
+    position: relative;
+    /* z-index: 1; */
+    aspect-ratio: 1/1;
+    height: 65%;
+
+    display: flex;
+    align-items: center;
+}
+#section-5-text p{
+    width: 100%;
+    /* text-align: center; */
     font-size: 20px;
 
 }
 #graphic-section1{
     position: relative;
-    z-index: 100;
+    /* z-index: 100; */
     margin: auto 0;
     width: 30%;
     height: 65%;
-    background: #9CD9EB;
-    left: 4rem;
+    /* background: #9CD9EB; */
+    /* left: 4rem; */
+    display: flex;
+    align-items: center;
 }
-
+#graphic-dataVis-container{
+    width: 30vw ;
+    height: 15vw;
+}
 /* Section-6 CSS */
 .sections-example{
     height: 9.091%;
@@ -516,10 +544,11 @@ canvas {
     /* top: 55vh; */
     bottom: -55vh;
 }
-#green-dashed-circle{
+#small-light-green-circle{
     position: absolute;
     z-index: 1;
     width: 26vw;
+    aspect-ratio: 1/1;
     left: 85%;
     bottom: -25%;
 }
@@ -559,6 +588,7 @@ canvas {
 }
 .section-10 h1{
     margin: 0;
+    font-size: 3vw;
     text-align: center;
     padding: 3rem 0 3rem 0;
     color: #3B8DA5;
@@ -586,9 +616,12 @@ canvas {
 
 }
 #nbs-animation{
-    width: 100%;
-    height: 400px;
+    width: 21vw;
+    height: 21vw;
+    margin: 0 auto 2vh auto;
+    
 }
+
 
 #focal-container{
     width: 80%;
@@ -795,7 +828,7 @@ label{
     position: relative;
     float: right;
     z-index: 2;
-    bottom: 35rem;
+    bottom: 27vw;
     width: 50%;
     height: 15vw;
     background-color: rgba(253,252,253,0.65);
@@ -835,7 +868,8 @@ label{
     width: 5vw;
     aspect-ratio: 1/1;
     /* bottom: 25rem; */
-    top: 65%;
+    /* top: 65%; */
+    top: 33vw;
     right: 5%;
     z-index: 1;
 }

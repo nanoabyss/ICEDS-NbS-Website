@@ -55,42 +55,48 @@ let p5Anim;
 function clickFunction(i){
     switch (i){
         case "landuse":
-            document.getElementById("focal-image").src = "Assests/Icons/2x/landuse.png";
-            document.getElementById("focal-heading").innerHTML = "Strategic Land Use";
-            console.log("landuse");
+          p5Anim.remove();
+          p5Anim = new p5(landuse, 'nbs-animation');
+          document.getElementById("focal-heading").innerHTML = "Strategic Land Use";
             break;
         case "urban":
-            document.getElementById("focal-image").src = "Assests/Icons/2x/urban.png";
-            document.getElementById("focal-heading").innerHTML = "Urban Blue-Green Infrastructure";
-            console.log("urban");
+          p5Anim.remove();
+          p5Anim = new p5(blueGreen, 'nbs-animation');
+          document.getElementById("focal-heading").innerHTML = "Urban Blue-Green Infrastructure";
+
             break;
         case  "agricultural":
-            document.getElementById("focal-image").src = "Assests/Icons/2x/agricultural.png";
-            document.getElementById("focal-heading").innerHTML = "Agricultrual Practice Change";
+          p5Anim.remove();
+          p5Anim = new p5(APCAnim, 'nbs-animation');
+          document.getElementById("focal-heading").innerHTML = "Agricultural Practice Change";
+
             break;
         case "stream":
-          document.getElementById("focal-image").src = "Assests/Icons/2x/stream.png";
+          p5Anim.remove();
+          p5Anim = new p5(stream, 'nbs-animation');
           document.getElementById("focal-heading").innerHTML = "Stream Restoration";
           break;
         case "ecosystem":
-          console.log("Poggers")
           p5Anim.remove();
-            p5Anim = new p5(ecoAnim, 'nbs-animation');
+          p5Anim = new p5(ecoAnim, 'nbs-animation');
+          document.getElementById("focal-heading").innerHTML = "Ecosystem/Watershed Restoration";
+
           break;
         case "wetlands":
-          document.getElementById("focal-image").src = "Assests/Icons/2x/wetlands.png";
+          p5Anim.remove();
+          p5Anim = new p5(wetlands, 'nbs-animation');
           document.getElementById("focal-heading").innerHTML = "Wetlands";
           break;
         case "reforestation":
             p5Anim.remove();
-            p5Anim = new p5(logoAnim, 'nbs-animation')
+            p5Anim = new p5(reforest, 'nbs-animation');
+            document.getElementById("focal-heading").innerHTML = "Reforestation";
+
           break;
         case "paleochannel":
-          // document.getElementById("focal-image").src = "Assests/Icons/2x/paleochannel.png";
-          // document.getElementById("focal-heading").innerHTML = "Paleochannel";
           p5Anim.remove();
-          p5Anim = new p5(paleo, 'nbs-animation')
-          
+          p5Anim = new p5(paleo, 'nbs-animation');
+          document.getElementById("focal-heading").innerHTML = "Paleochannel";
           break;
     }
 };
@@ -156,6 +162,10 @@ function handleStepEnter(response){
 
     document.querySelector("#report-img-link").classList.add("enter-main")
   }
+  if(response.element.classList.contains("DataVisAnim1")){
+    var myp5 = new p5(dataVis1,'animation1');
+    response.element.classList.remove("DataVisAnim1");
+  }
   response.element.classList.remove("will-animate");
   // response.element.classList.add("red");
 }
@@ -182,7 +192,10 @@ init();
 // P5.js Section
 // ----------------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------------
 // Logo Animation
+// ----------------------------------------------------------------------------------------------------------------------
+
 var logoAnim = function(p){
   let spritesheet; //image variable
 let spritedata; //data variable
@@ -244,7 +257,365 @@ p.draw = function() {
 }
 var myp5 = new p5(logoAnim, 'logo-animation');
 
+// ----------------------------------------------------------------------------------------------------------------------
+// Strategic Land Use
+// ----------------------------------------------------------------------------------------------------------------------
+var landuse = function(p){
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let SLM = [];
+  
+  p.preload = function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/SLM.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/SLM Sprite Sheet.png");
+  }
+  
+  p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    SLM = new Sprite(animation, 0, 0, 0.02);
+  }
+   class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+    }
+    animate() {
+      this.index += this.speed;
+    }
+  }   
+  p.draw = function() {
+    SLM.show();
+    SLM.animate();
+  }
+  }
+
+// ----------------------------------------------------------------------------------------------------------------------
+// Blue Green Infrastructure Animation
+// ----------------------------------------------------------------------------------------------------------------------
+
+var blueGreen = function(p){
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let bluegreen = [];
+  
+  p.preload = function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/bluegreen.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/Blue Green Infra Sprite Sheet.png");
+  }
+  
+  p.setup = function(){
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    bluegreen = new Sprite(animation, 0, 0, 0.03);
+  }
+
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+    }
+  
+    animate() {
+      this.index += this.speed;
+    }
+  }    
+  p.draw = function() {
+    bluegreen.show();
+    bluegreen.animate();
+  }
+  }
+
+// ----------------------------------------------------------------------------------------------------------------------
+// Agricultural Practice Change
+// ----------------------------------------------------------------------------------------------------------------------
+var APCAnim = function(p){
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let APC = [];
+  
+  p.preload = function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/APC.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/APC Sprite Sheet.png");
+  }
+  
+  p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    APC = new Sprite(animation, 0, 0, 0.03);
+  }
+    
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+    }
+  
+    animate() {
+      this.index += this.speed
+    }
+  }    
+  p.draw = function() {
+    APC.show();
+    APC.animate();
+    //image(animation[10], 0, 0, 400, 400);
+  }}
+
+// ----------------------------------------------------------------------------------------------------------------------
+// Stream Restoration
+// ----------------------------------------------------------------------------------------------------------------------
+var stream = function(p){
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let SR = [];
+  
+  p.preload = function(){
+    spritedata = p.loadJSON("Assests/Animation-assets/SR.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/SR Sprite Sheet.png");
+  }
+  
+  p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    SR = new Sprite(animation, 0, 0, 0.02);
+  }
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+    }
+    animate() {
+      this.index += this.speed;
+    }
+  }    
+  p.draw = function() {
+    SR.show();
+    SR.animate();
+  }
+  }
+
+// ----------------------------------------------------------------------------------------------------------------------
+// EcoSystem Animation
+// ----------------------------------------------------------------------------------------------------------------------
+
+var ecoAnim = function(p){
+let spritesheet; //image variable
+let spritedata; //data variable
+let animation = []; //array for each frame
+let ER = [];
+
+ p.preload = function() {
+  spritedata = p.loadJSON("Assests/Animation-assets/ER.json");
+  spritesheet = p.loadImage("Assests/Animation-assets/Ecosystem Restoration Sprite Sheet.png");
+}
+
+ p.setup = function() {
+  p.createCanvas(400, 400);
+  let frames = spritedata.frames;
+  for (let i = 0; i < frames.length; i++){
+    let pos = frames[i].position;
+    let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+    animation.push(img);
+  }
+  ER = new Sprite(animation, 0, 0, 0.03);
+}
+class Sprite {
+  constructor(animation, x, y, speed){
+    this.x = x;
+    this.y = y;
+    this.animation = animation;
+    this.w = this.animation[0].width;
+    this.len = this.animation.length;
+    this.speed = speed;
+    this.index = 0;
+  }
+
+  show() {
+    let index = p.floor(this.index) % this.len;
+    p.image(this.animation[index], this.x, this.y, 400,400) 
+  }
+
+  animate() {
+    this.index += this.speed;
+
+  }
+}    
+ p.draw = function() {
+  ER.show();
+  ER.animate();
+}
+}
+
+// ----------------------------------------------------------------------------------------------------------------------
+// Wetlands
+// ----------------------------------------------------------------------------------------------------------------------
+var wetlands = function(p){
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let Wetlands = [];
+  
+  p.preload = function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/Wetlands.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/Wetlands Sprite Sheet.png");
+  }
+  
+  p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    } 
+    Wetlands = new Sprite(animation, 0, 0, 0.02);
+  }
+    
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+    }
+    animate() {
+      this.index += this.speed;
+    }
+  }    
+    
+  p.draw = function() {
+    Wetlands.show();
+    Wetlands.animate();
+  }
+  }
+
+// ----------------------------------------------------------------------------------------------------------------------
+// Reforestation Animation
+// ----------------------------------------------------------------------------------------------------------------------
+
+var reforest = function(p){
+  let spritesheet; //image variable
+  let spritedata; //data variable
+  let animation = []; //array for each frame
+  let Reforestation = [];
+  p.preload =function() {
+    spritedata = p.loadJSON("Assests/Animation-assets/Reforestation.json");
+    spritesheet = p.loadImage("Assests/Animation-assets/Reforestation Sprite Sheet.png");
+  }
+  
+  p.setup = function() {
+    p.createCanvas(400, 400);
+    let frames = spritedata.frames;
+    for (let i = 0; i < frames.length; i++){
+      let pos = frames[i].position;
+      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+      animation.push(img);
+    }
+    Reforestation = new Sprite(animation, 0, 0, 0.03);
+  }
+  class Sprite {
+    constructor(animation, x, y, speed){
+      this.x = x;
+      this.y = y;
+      this.animation = animation;
+      this.w = this.animation[0].width;
+      this.len = this.animation.length;
+      this.speed = speed;
+      this.index = 0;
+    }
+  
+    show() {
+      let index = p.floor(this.index) % this.len;
+      p.image(this.animation[index], this.x, this.y, 400,400)
+    }
+  
+    animate() {
+      this.index += this.speed;
+    }
+  }    
+  p.draw = function() {
+    Reforestation.show();
+    Reforestation.animate();
+    //image(animation[11], 0, 0, 400, 400);
+  }  
+  }
+
+
+// ----------------------------------------------------------------------------------------------------------------------
 // Paleochannel Animation
+// ----------------------------------------------------------------------------------------------------------------------
+
 var paleo = function (p){
   
   let spritesheet; //image variable
@@ -296,72 +667,103 @@ var paleo = function (p){
     //image(animation[11], 0, 0, 400, 400); 
   }
   }
-  
-  // var myp5_1 = new p5(paleo);
   p5Anim = new p5(paleo, 'nbs-animation');
 
 
-  // EcoSystem Animation
-
-  var ecoAnim = function(p){
-    let spritesheet; //image variable
-  let spritedata; //data variable
-  
-  let animation = []; //array for each frame
-  
-  let ER = [];
-  
-   p.preload = function() {
-    spritedata = p.loadJSON("Assests/Animation-assets/ER.json");
-    spritesheet = p.loadImage("Assests/Animation-assets/Ecosystem Restoration Sprite Sheet.png");
-  }
-  
-   p.setup = function() {
-    p.createCanvas(400, 400);
-    let frames = spritedata.frames;
-    for (let i = 0; i < frames.length; i++){
-      let pos = frames[i].position;
-      let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
-      animation.push(img);
-    }
-    
-    ER = new Sprite(animation, 0, 0, 0.03);
-    
-  }
-  class Sprite {
-    constructor(animation, x, y, speed){
-      this.x = x;
-      this.y = y;
-      this.animation = animation;
-      this.w = this.animation[0].width;
-      this.len = this.animation.length;
-      this.speed = speed;
-      this.index = 0;
-    }
-  
-    show() {
-      let index = p.floor(this.index) % this.len;
-      p.image(this.animation[index], this.x, this.y, 400,400)
-      
-    }
-  
-    animate() {
-      this.index += this.speed;
-  
-    }
-  }    
-   p.draw = function() {
-    
-    
-    ER.show();
-    ER.animate();
-    //image(animation[11], 0, 0, 400, 400);
-    
-    
-  }
-  }
   
   // var myp5_2 = new p5(ecoAnim);
 
 
-  
+
+
+
+
+
+
+
+
+
+
+  // ----------------------------------------------------------------------------------------------------------------------
+  // Data Visulation Animation 1:
+  // ---------------------------------------------------------------------------------
+  var dataVis1 = function(p){
+    let rectHeight = 10; // Initial height of the rectangle
+    let rectWidth = 100; // Width of the rectangle
+    let targetHeight = 350; // Target height of the rectangle
+    let animationDuration = 1.5; // Duration in seconds
+    let startTime;
+    p.setup = function() {
+      p.createCanvas(400, 400);
+      startTime = p.millis(); // Get the current time in milliseconds
+      p.noStroke(); // Remove the border
+    }
+    
+    p.draw = function() {
+      p.background(0, 0, 0, 0); // Set background to transparent
+    
+      let currentTime = p.millis(); // Get the current time
+    
+      // Calculate the progress (0 to 1) of the animation
+      let progress = (currentTime - startTime) / (animationDuration * 1000);
+    
+      // Ensure progress doesn't exceed 1
+      progress = p.min(progress, 1);
+    
+      // Interpolate the current height based on the progress
+      rectHeight = p.lerp(10, targetHeight, progress); // Increase from the bottom
+    
+      // Draw the rectangle
+      p.fill(59, 142, 165);
+      p.rect(50, 400 - rectHeight, rectWidth, rectHeight); // Adjust the y-coordinate
+    }}
+
+  // ----------------------------------------------------------------------------------------------------------------------
+  // Data Visulation Animation 2:
+  // ---------------------------------------------------------------------------------
+    var dataVis2 = function(p){
+      let spritesheet; //image variable
+      let spritedata; //data variable
+      let animation = []; //array for each frame
+      let hes = [];
+      p.preload = function() {
+        spritedata = p.loadJSON("Assests/Animation-assets/HES.json");
+        spritesheet = p.loadImage("Assests/Animation-assets/hes Sprite Sheet.png");
+      }
+      
+      p.setup = function() {
+        p.createCanvas(400, 200);
+        let frames = spritedata.frames;
+        for (let i = 0; i < frames.length; i++){
+          let pos = frames[i].position;
+          let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
+          animation.push(img);
+        }
+        hes = new Sprite(animation, 0, 0, 0.02); 
+      }
+        class Sprite {
+        constructor(animation, x, y, speed){
+          this.x = x;
+          this.y = y;
+          this.animation = animation;
+          this.w = this.animation[0].width;
+          this.len = this.animation.length;
+          this.speed = speed;
+          this.index = 0;
+        }
+        show() {
+          let index = p.floor(this.index) % this.len;
+          p.image(this.animation[index], this.x, this.y, 400,400)   
+        }
+        animate() {
+          this.index += this.speed;
+        }
+      } 
+        
+      p.draw = function() { 
+        hes.show();
+        hes.animate();
+      }
+      }
+      var dataVisAnim2 = new p5(dataVis2, 'graphic-dataVis-container');
+    
