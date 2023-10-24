@@ -292,10 +292,10 @@ canvas {
 }
 #text-container1 p{
     font-size: 1.25vw;
-    background: #3B8EA5;
+    background: #A5d6b1;
     /* border-radius: 100px; */
     padding: 2em 1.5em;
-    color: #EEF8F9;
+    color: #171210;
     margin: 0;
 }
 
@@ -307,6 +307,7 @@ canvas {
     justify-content: flex-end;
     /* padding-left: -5.2vw; */
     height: 40%;
+    margin-top: 8vw;
     /* border: 2px red solid; */
 }
 #animation1-text{
