@@ -10,17 +10,29 @@
         <title>Home</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Scrollama JS -->
         <script src="https://unpkg.com/scrollama"></script>
+        <!-- P5.js used for the animations. -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+        <!-- Mapbox JS libraries -->
         <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
-        <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>    
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>   
+         <!--Libraries local to the project  -->
         <link rel="stylesheet" href="stylesheet.css">
+        <!-- Adobe fonts CSS -->
         <link rel="stylesheet" href="https://use.typekit.net/xwn1oli.css">
     </head>
     <body>
+        <!-- The container that is used to size the entire website
+            DO NOT REMOVE
+        -->
         <div class = "overall-container">
+            <!-- 
+                The navigation bar that lives at the top of the screen.
+                based off a list format
 
+             -->
             <div id = "sticky-menu">
                 <div class = "sticky-nav-bar">
                     <a href="index.html" id = "logo-alone-link">
@@ -36,8 +48,14 @@
                     </div>
                     </div>
             </div>
+            <!-- The return to top button
+                sits above all the other divs so the use can click it to return to the top at any point
+                uses JS and CSS for it to function.
+            -->
             <div id="return-top-div">
+                <!-- A button is used to track interaction events. -->
                 <button id = "return-top-button" onclick="topFunction()" title="Go to top">
+                    <!-- The SVG code of the button -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91 91" id = "return-top-svg">
                     <g id="Ellipse_88" data-name="Ellipse 88" transform="translate(91 91) rotate(180)" fill="#9cd9eb" stroke="#9cd9eb" stroke-width="1" opacity="1">
                       <circle cx="45.5" cy="45.5" r="45.5" stroke="none"/>
@@ -49,8 +67,13 @@
                   </svg>
                 </button>        
             </div>
+            <!-- The first div/section of the page
+                contains the large background image and title. -->
             <div class = "section-1">
+                <!-- Background image of the river -->
                 <img src="Assests/CalliopeRiverInFlood-QueenslandDec2010.png" class = "hero-image">
+                    <!-- Big circle indicating to the user to scroll
+                        Again made with SVG  -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235 235" id="scroll-circle">
                         <g id="Ellipse_74" data-name="Ellipse 74" fill="#9cd9eb" stroke="#9cd9eb" stroke-width="1" opacity="0.8">
                           <circle cx="117.5" cy="117.5" r="117.5" stroke="none"/>
@@ -59,8 +82,10 @@
                         <g id="Forward_arrow" data-name="Forward arrow" transform="translate(68.367 67.868)">
                           <path id="Path_10" data-name="Path 10" d="M49.132,0,40.2,8.933,74.017,42.751H0V55.513H74.017L40.2,89.331l8.933,8.933L98.264,49.132Z" transform="translate(98.264) rotate(90)" fill="#edf7f8"/>
                         </g>
-                      </svg>             
+                      </svg> 
+                   <!-- Holds the logo animation and title -->
                 <div id="logo-rect">
+                    <!--Used to hold the p5.js animation  -->
                     <div id = "logo-animation"></div>
                     
                     <div id="main-logo-text">
@@ -72,17 +97,29 @@
 
 
 
-
+            <!-- second section of the page has two classes used. 
+                The animation-div class is used for scrollama which triggers animations - see more in README -->
             <div class = "section-2 animation-div">
+                <!-- Div for the main text of the animation -->
                 <div id="text-group">
                     <h1>Partnering with communities in Australia to identify nature-based approaches for  flood resilience </h1>
                     <h2>NATIONAL GUIDELINES</h2>
                 </div>
-                <!-- TODO: Address CSS Circle Issues - About relative SVG sizing -->
+                <!-- div which contains all the circles  
+                the step class is used in scrollama read README for more info
+                report class is an animation class used to animate the report image
+                will-animate is another css class which just hides the element until it is being used.
+                
+                
+                -->
                 <div id = "circle-group" class="step report will-animate">
                     <a href="Assests/report-placeholder.png" id = "report-img-link" class=""><img src="Assests/report-placeholder.png" id = "report-placeholder">
                         Download Report
                     </a>
+                    <!-- SVGs of the circles
+                        the class tags that are used for each of the circles to be animated will be added once they are triggerd by scrollama
+                        this is becuase otherwise the circle will always be there instead of appearing. So the animation will not work.
+                    -->
                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 864.352 825" id = "circle-group-svg">
                         <g id="Ellipse_75" data-name="Ellipse 75" transform="translate(149.883 170)" fill="#9cd9eb" stroke="#9cd9eb" stroke-width="1" opacity="0.83">
                           <circle cx="327.5" cy="327.5" r="327.5" stroke="none"/>
@@ -99,9 +136,21 @@
                       </svg>
                 </div>
             </div>
+
+            <!-- 
+                Third section/div of the page, also has the animation class as an animation will be playing in this div.
+             -->
             <div class = "section-3 animation-div">
+                <!-- Used to flex to align the element/divs in the correct way. I choose flex cause i understand it the best
+                    Has step as it will utilise scrollama
+                    Has DataVisAnim1 as if it isn't there the animation doesn't work, unsure why but it doesn't affect any other aspect of the webpage. -->
                 <div id = "flex-container" class="step DataVisAnim1">
                     <div class="main-text-box">
+                        <!-- Text container where the text is populated 
+
+                            TODO: This text can also be replaced
+                            
+                        -->
                         <div id="text-container1">
                             <h1>WHY FLOODING</h1>
                             <p>
@@ -112,6 +161,7 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                             </p>
                         </div>
                     </div>
+                    <!-- The div in which the animation and the text will exist, also a flex child so it will be in the correct position. -->
                     <div id = "animation1" class = "DataVisAnim1">
                         <div id = "animation1-text">  
                             <h1>By 2060, floods could cost Australia
@@ -120,27 +170,39 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                         </div>
                     </div>
                 </div>
-                    <div id = "small-light-brown-circle" class="step will-animate right">
+                <!-- Div for the brown circle that will come in from the right side of the page
+                    step and will-animate are the same as above
+                    The right class is just the animation css class. -->
+                <div id = "small-light-brown-circle" class="step will-animate right">
+                    <!-- The SVG code -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
                             <g id="Ellipse_89" data-name="Ellipse 89" fill="#b09779" stroke="#707070" stroke-width="1" opacity="0.57">
                               <circle cx="250" cy="250" r="250" stroke="none"/>
                               <circle cx="250" cy="250" r="249.5" fill="none"/>
                             </g>
-                          </svg>
-                          
-                                          
+                          </svg>                 
                 </div>
             </div>
+
+            <!-- Forth Section which contains the large image background and text infront of i-->
             <div class = "section-4">
                 <img src="Assests/Berrinba_Wetlands_billabong.png" class="backdrop-image">
+                <!-- Div that contains the text
+
+                    TODO: This text can be replaced
+                -->
                 <div id="communities-text">
                     <p>Communities can be disadvantaged by the 
                         loss of recreation and tourism opportunities and
                         impacts on critical groundwater recharge.</p>
                 </div>
             </div> 
-            <div class = "section-5 animation-div"> 
+            <!-- Section 5 which contains the another animation and some text elements  -->
+            <div class = "section-5 animation-div">
+                 <!--This div for the green cirlce that will be moving in from the left.
+                    The left class is the animation that will occur on the object/element  -->
                 <div id ="light-green-circle" class="step will-animate left">
+                    <!-- SVG code for the circle -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="46vw" height="46vw" viewBox="0 0 900 900">
                         <g id="Ellipse_85" data-name="Ellipse 85" fill="#a6d5b1" stroke="#a6d5b1" stroke-width="1" opacity="0.57">
                           <circle cx="450" cy="450" r="450" stroke="none"/>
@@ -148,13 +210,20 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                         </g>
                       </svg>
                </div>  
+               <!-- The container for the group of text and graphic -->
                <div id = "section-5-info-container">           
+                <!-- the graphic/animation container -->
                 <div id="graphic-section1">
                     <div id = "graphic-dataVis-container">
 
                     </div>
                     
                 </div>
+                <!-- The div that the text lives in
+                    
+                    THIS TEXT CAN BE REPLACED
+
+                -->
                 <div id = "section-5-text">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed rhoncus nunc, non rutrum diam. Suspendisse potenti. Pellentesque vitae tempor risus, ut euismod augue. Nulla finibus eros sit amet sodales tempus. Mauris tempus eu nisi ullamcorper gravida. Donec mollis faucibus orci sed tempor. Aliquam ut nisi a ante feugiat accumsan. Aenean aliquet mi purus, et efficitur nulla dignissim eget. Phasellus vehicula nibh dui, et aliquet massa bibendum nec. Nulla sed ullamcorper diam. Proin gravida, lacus et dapibus laoreet, turpis purus blandit mauris, non aliquam diam lacus id ante. Nulla quam odio, gravida eget arcu sed, scelerisque finibus ipsum. Nunc at risus pulvinar, dictum erat in, lacinia est. 
 
@@ -163,8 +232,17 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                 </div>
             </div>
             </div>
+            <!-- Section 6 but name differently as it occurs twice as these sample example are in the page three time
+                This section exist to hold summary of example case studies when completed. hyperlink could be added as well
+                Has the animation-div tag as an animation will occur in this div.
+            -->
             <div class = "sections-example animation-div">
                 <div class="examples-container">
+                    <!-- Text container 
+                    
+                        ALL TEXT HERE CAN BE REPLACED.
+                    
+                    -->
                     <div class = "example-text-container">
                         <div class = "title-container">
                             <h1>NbS Example Title</h1>
@@ -180,10 +258,12 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                                
                         </div>
                     </div>
+                    <!-- The div that contains the image, this image can also be replaced. -->
                     <div class = "example-img-container">
                         <img src="Assests/Allyn_River_cataract.png">
                     </div>
                 </div>
+                <!-- SVG for the green that animates in, same triggering events as before. -->
                 <div id="example-green-circle" class="step will-animate right">
                     <svg xmlns="http://www.w3.org/2000/svg" width="46vw" height="46vw" viewBox="0 0 900 900">
                         <g id="Ellipse_86" data-name="Ellipse 86" fill="#c4e3cf" stroke="#c4e3cf" stroke-width="1" opacity="0.57">
@@ -193,6 +273,8 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                       </svg> 
                 </div>
             </div>
+
+            <!-- Section 7, essentially same as section 6 but just flipped to change the look up. -->
             <div class = "sections-example animation-div">
                 <div class="examples-container">
                     <div class = "example-img-container">
@@ -213,6 +295,7 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                         </div>
                     </div>
                 </div>
+                <!-- SVG for the brown cirlce that animates in, same triggering event as normal -->
                 <div id = "example-brown-circle" class="step will-animate left">
                     <svg xmlns="http://www.w3.org/2000/svg" width="46vw" height="46vw" viewBox="0 0 900 900">
                         <g id="Ellipse_87" data-name="Ellipse 87" fill="#b09779" stroke="#b09779" stroke-width="1" opacity="0.4">
@@ -223,9 +306,14 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                        
                 </div>
             </div> 
-
+            <!-- Section 8 same as section 6 just further down. -->
             <div class = "sections-example animation-div">
                 <div class="examples-container">
+                    <!-- Text container 
+                    
+                        ALL TEXT HERE CAN BE REPLACED.
+                    
+                    -->
                     <div class = "example-text-container">
                         <div class = "title-container">
                             <h1>NbS Example Title</h1>
@@ -245,6 +333,7 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                         <img src="Assests/Allyn_River_cataract.png">
                     </div>
                 </div>
+               <!-- SVG for the small green cirlce that animates in, same triggering event as normal -->
                 <div id = "small-light-green-circle" class="step will-animate right">
                     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 500 500">
                         <g id="Ellipse_90" data-name="Ellipse 90" fill="#c4e3cf" stroke="#707070" stroke-width="1" opacity = "0.57">
@@ -256,26 +345,40 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                       
                 </div>
             </div>
+            <!-- Section 9, section that holds the interactive map. 
+                Provided via mapbox, you guys have the login detail for the account, functionality comes from the referenced
+                JS file at the start and other functionality local to the map comes from the map.js file.
+            -->
             <div class = "section-9">
                     <h1>Case Study Map</h1>
                 <div id = "map">
                     <script src="map.js"></script>
                 </div>
             </div>
+            <!-- Section 10 
+                Section that explains the types of nature based solutions, each of the icons the right side can be clicked
+                and the focal icon will change to match it along with the text, while currently the Lorem ipsum will not change but that can be easily added.
+                
+            -->
             <div class = "section-10">
                 <h1> Nature-based solutions types </h1>
+                <!-- Container to hold everything apart from the section heading -->
                 <div class = "type-container">
+                    <!-- Div to hold the focal animation -->
                     <div id = "img-desc-container">
+                        <!-- Just a div that will hold the animation allowed to position the animation easier. -->
                         <div id ="nbs-animation">
-                            <script src="paleochannel-sketch.js"></script>
-
                         </div>
+                        <!-- The focal container that holds the text. -->
                         <div id = "focal-container">
                             <h1 id ="focal-heading">Strategic Land Use</h1>
                             <p id = "focal-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut velit feugiat massa posuere dictum laoreet lobortis lectus. Nulla venenatis libero ac tellus ullamcorper placerat. Curabitur maximus non dui eu lobortis. Vivamus commodo imperdiet ultrices. Praesent mollis, arcu in pellentesque maximus, ante nisi pharetra erat, non pulvinar justo lorem at sem. Integer eu justo mi. Pellentesque eu aliquam neque. Nunc commodo eros quis nisi viverra maximus. Vestibulum maximus leo est, et dapibus dolor accumsan ac. Nullam massa arcu, tempus non mollis a, convallis non augue. Donec tincidunt ex et faucibus placerat. Proin eros dui, posuere quis commodo nec, consequat eu turpis. Vestibulum at justo quis metus pellentesque efficitur ut sit amet dolor. Aliquam elementum, dolor in pretium dictum, ligula nibh semper orci, eu pretium leo lorem sit amet ipsum. </p>
                         </div>
                     </div>
+                    <!-- Div that has all the icons, they all have event listeners for clicks so they can change the
+                         focal animation and text. -->
                     <div id = "icon-list">
+                        <!-- All icon conatiners follow the same design just different images and text-->
                         <div id ="landuse" class = "icon-containers">
                             <img src="Assests/Icons/landuse.png" class="icon-imgs">
                             <h1>Strategic Land Use</h1>
@@ -312,17 +415,28 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
 
                 </div>
             </div>
+            <!-- Section 11
+                 The contact us div and hyperlinks div.
+            -->
             <div class = "section-11">
+                <!-- This image can be changed -->
                 <div class = "img-container"><img src="Assests/Berrinba_Wetlands_billabong.png" id="back-drop-img">
                 </div>
+                <!-- Div that contains everything. -->
                 <div id="contact-container">
+                    <!-- Div that holds all the information split into two sections
+                        Information container/column then the contact container/column -->
                     <div id="info-container">
+                        <!-- First column -->
                         <div id = "column-1" class = "contact-columns">
+                            <!-- Heading for that column -->
                             <h2>Resources</h2>
+                            <!-- Just normal hyperlinks -->
                             <a href="Assests/report-placeholder.png">Download Report</a>
                             <a href="nbs.html">Nature-based Solutions</a>
                             <a href="caseStudies.html">Case Studies</a>
                         </div>
+                        <!-- 2nd column -->
                         <div id = "column-2" class = "contact-columns">
                             <h2>About</h2>
                             <a href="aboutUs.html">About NbS</a>
@@ -330,8 +444,13 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                             <a href="contactUs.html">Contact Us</a>
                         </div>
                         
-                        <!-- This Form for signing up for newsletter needs a third-party to act as a mailing service. -->
+                        <!-- This Form for signing up for newsletter needs a third-party to act as a mailing service. 
+                            Uses Mailchimp which you guys have access to. This code currently is linking to my personal mailchimp
+                            This form was created using mailchimps form builder, so just follow this example in their builder and then copy 
+                            the code across
+                        -->
                         <div id = "column-3" class = "contact-columns">
+                            <!-- Paste mailchimp form creator code below here -->
                             <p>Enter your email to hear about the latest NbS</p>
                             <div id="mc_embed_shell">
                                 <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
@@ -358,15 +477,10 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                           </form>
                           </div>
                           <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
-                          
-                            
-                            <!-- <form action="https://outlook.us21.list-manage.com/subscribe/post?u=2d30c4a31440fa74dc953a422&amp;id=4d52f1e8db&amp;f_id=0083e6e6f0" method="post">
-                                <input type="text" id = "email" name = "email" value = "Your Email">
-                                <input type="submit" value="SUBMIT">
-                            </form> -->
-
+                          <!-- Do not paste below here -->
                         </div>
                     </div>
+                    <!-- Div for social media links and tag about the NBS -->
                     <div id="nbs-tag">
                         <p>Follow the ANU Institute for Climate, Energy and Disaster Solutions on social media</p>
                         <div id = "socials">
@@ -376,10 +490,7 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
                         </div>
                         <p>© 2023 Nature-Based Flood Resilience</p>
                     </div>
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="105%" viewBox="0 0 1933.957 821.915" id = "form-svg">
-                        <path id="Union_4" data-name="Union 4" d="M327.5-7935.086v-672.778H327l.5-.215v-.16h.374c19.445-8.327,359.328-152.49,574.262-148.687,220.136,3.9,561.528,124.941,1001.624,148.688h239.77c64.882-6.01,93.513-17.85,105.251-29.69,17.638-17.792-2.913-35.583,3.856-33.594,14.851,4.362,5.289,63.659,5.289,63.659H2246.5v672.778Z" transform="translate(-327 8757.001)" fill="#3b8da5"/>
-                      </svg> -->
-                      
+                        <!-- Blue wavey backdrop for the section. -->
                         <img src="Assests/backdrop.svg" id="backdrop-svg">
                 </div>
             </div>
@@ -392,8 +503,7 @@ Communities can also be disadvantaged by the loss of recreation and tourism oppo
 
 
 
-        
-        <!-- <script src="" async defer></script> -->
+        <!-- Main JS script that runs most functionality on the website. -->
         <script src="script.js"></script>
     </body>
 </html>

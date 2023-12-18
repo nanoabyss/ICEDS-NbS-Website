@@ -1,5 +1,10 @@
 
 
+
+// Just adding eventlisteners to each of the icon images inside section 10 to see if they are clicked or not.
+// Then if they are clcicked run the function clickFunction and hand it the string landuse.
+// console log the icon clicked just for debugging purposes.
+// All the eventListeners function the same, they just hand different strings to the function.
 document.querySelector('#landuse').addEventListener('click', function() {
   // specify the action to take when the div is clicked
   console.log('landuse');
@@ -49,14 +54,22 @@ document.querySelector('#urban').addEventListener('click', function() {
     clickFunction('paleochannel');
   });
 
-// TODO: Add a file that has all the descriptions for each of the types.
+// Declaring global variable for the animations that will play later
 let p5Anim;
+
+
+// clickFunction, changes the active animation in section 10 focal icon.
+// i = string
+// Animation is removed each time due to the animations occupying the same space and otherwise it breaks
+// Animations run inside p5.js, but are embedded in instance mode
+
 
 function clickFunction(i){
     switch (i){
         case "landuse":
           p5Anim.remove();
           p5Anim = new p5(landuse, 'nbs-animation');
+          // Changing the title, need to add changing text below the title.
           document.getElementById("focal-heading").innerHTML = "Strategic Land Use";
             break;
         case "urban":
@@ -103,22 +116,14 @@ function clickFunction(i){
 
 document.querySelector('#landuse').addEventListener('click', clickFunction());
 
-
-function myFunction(){
-  var x = document.getElementById("mylinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-
+// Return to top button
 let mybutton = document.getElementById("return-top-button");
 
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
+// Make the button appear and disappear when the user scrolls past 300.
 function scrollFunction() {
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     mybutton.style.display = "block";
@@ -126,7 +131,7 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-
+// Returns to the stop of the page.
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -137,15 +142,19 @@ function topFunction() {
 
 // Scrollama
 
-
+// Setting up variables to be used in the html file.
 var scrolly = document.querySelector(".overall-container");
 var div = document.querySelector(".animation-div")
 var step = div.querySelector(".step");
 
 var scroller = scrollama();
 
+// built in function of scrollama, this function is actived everytime the user scrolls into a step.
+// 
 function handleStepEnter(response){
   console.log(response.element);
+  // Checking which element is entered via the classList tag, then adds the animations class to the element to start the
+  // animation.
   if(response.element.classList.contains("left")){
     response.element.classList.add("enter-left");
 
@@ -154,7 +163,7 @@ function handleStepEnter(response){
 
   }
   if(response.element.classList.contains("report")){
-    // response.element.classList.add("enter-main");
+
     console.log(response.element.children[1].children);
     response.element.children[1].children[0].classList.add("big-circle");
     response.element.children[1].children[1].classList.add("dark-green");
@@ -171,6 +180,7 @@ function handleStepEnter(response){
 }
 
 function handleStepExit(response){
+  // Just debugging code
   console.log ("Leaving " + response.element);
   // response.element.classList.remove("red");
 }
@@ -178,6 +188,7 @@ function handleStepExit(response){
 
 function init(){
   scroller
+  // step initiates which class is seen as a step in the html so events can work.
       .setup({
         step: ".step",
         offset: 0.9
@@ -190,6 +201,7 @@ init();
 
 // ----------------------------------------------------------------------------------------------------------------------
 // P5.js Section
+// Unsure about how this code functions as it was coded by another member of the group.
 // ----------------------------------------------------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -667,7 +679,7 @@ var paleo = function (p){
     //image(animation[11], 0, 0, 400, 400); 
   }
   }
-  p5Anim = new p5(paleo, 'nbs-animation');
+  p5Anim = new p5(landuse, 'nbs-animation');
 
 
   

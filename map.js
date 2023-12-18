@@ -27,6 +27,7 @@ map.on('click', (event) => {
     */
     const popup = new mapboxgl.Popup({ offset: [0, -15] })
       .setLngLat(feature.geometry.coordinates)
+      // Specifing the HTML that will make the popup
       .setHTML(
       `<a href = "location-page/${feature.properties.filename}.html">
       <h3>${feature.properties.location}</h3></a>

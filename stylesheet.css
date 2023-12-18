@@ -2,33 +2,30 @@ body{
     padding: 0;
     margin: 0;
     z-index: -1;
-    /* overflow: hidden; */
-    /* background-color: red; */
+
 }
+
+/* The highest level containers used to shape the entire webstie
+If the height is altered the size of the divs will be altered as they are reactively sized - could cause visual issues
+Position relative is used to for all the position absolute elements so they relate to this div/container
+overflow hidden is used to hide the circles that go off the screen.     
+
+*/
 .overall-container{
-    /* 11880px */
     height: 11880px;
-    /* height: 1283vh; */
     padding: 0;
     margin: 0;
     overflow: hidden;
     position: relative;
-    /* z-index: -1; */
-    /* background-color: aqua; */
 }
 /* Font Section */
-/* 
-font-family: brother-xs, sans-serif;
-font-weight: 300;
-font-style: normal;
-*/
 @font-face {
     font-family: GeosansLight;
     src: url(Assests/fonts/GeosansLight.ttf);
 }
 
 
-
+/* Setting default fonts for each of the text based options */
 h1{
     font-family: brother-xs, sans-serif;
     font-weight: 300;
@@ -44,7 +41,7 @@ p,a{
     font-weight: 300;
     font-style: normal;
 }
-
+/* P5 CSS  */
 canvas {
     display: block;
   }
@@ -56,8 +53,9 @@ canvas {
 
 
 /* Sticky Nav Bar */
+/* Overall Sticky menu container */
 #sticky-menu{
-    position: fixed;
+    position: fixed; 
     z-index: 10;
     width: 100%;
 }
@@ -88,6 +86,8 @@ canvas {
 #logo-alone-link{
     height: 60px;
 }
+
+/* Return to top CSS */
 #return-top-div{
     position: fixed;
     z-index: 15;
@@ -104,6 +104,7 @@ canvas {
 }
 #return-top-svg{
     width: 5vw;
+    /* using aspect ratio to make it a circle */
     aspect-ratio: 1/1;
 }
 
