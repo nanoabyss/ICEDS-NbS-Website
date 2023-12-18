@@ -155,7 +155,7 @@ canvas {
     bottom: 40rem;
     right: 2rem;
     width: 60%;
-    height: 21vw;
+    height: 23vw;
     background-color: rgba(253,252,253,0.65);
     display: flex;
     flex-direction: row;
@@ -293,10 +293,10 @@ canvas {
 }
 #text-container1 p{
     font-size: 1.25vw;
-    background: #3B8EA5;
+    background: #A5d6b1;
     /* border-radius: 100px; */
     padding: 2em 1.5em;
-    color: #EEF8F9;
+    color: #171210;
     margin: 0;
 }
 
@@ -308,6 +308,7 @@ canvas {
     justify-content: flex-end;
     /* padding-left: -5.2vw; */
     height: 40%;
+    margin-top: 8vw;
     /* border: 2px red solid; */
 }
 #animation1-text{
@@ -663,6 +664,7 @@ canvas {
     display: flex;
     flex-direction: row;
     align-items: center;
+    /* justify-content: flex-start; */
     gap: 1vw;
 }
 .icon-imgs{
@@ -674,6 +676,7 @@ canvas {
     padding: 0;
     font-size: 1.3vw;
     width: 50%;
+    text-align: left;
 }
 
 /* Section 11 CSS */
